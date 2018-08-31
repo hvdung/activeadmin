@@ -10,6 +10,9 @@ gem 'devise'
 gem 'cancancan'
 gem 'mysql2'
 gem 'bootstrap', '~> 4.1.3'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'ckeditor'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
