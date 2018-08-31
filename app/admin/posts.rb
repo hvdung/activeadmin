@@ -15,6 +15,7 @@ ActiveAdmin.register Post do
     permit_params :title, :content, :thumbnail, :category_ids => []
 
     form do |f|
+        f.semantic_errors *f.object.errors.keys
         f.inputs do
             f.input :title
             f.input :content, as: :ckeditor
@@ -23,4 +24,37 @@ ActiveAdmin.register Post do
         end
         f.actions
     end
+
+    index do
+        selectable_column
+        id_column
+        column :title do |post|
+            link_to post.title, admin_post_path(post)
+        end
+        column :categories do |post|
+            post.categories.map {|c| link_to(c.title, admin_category_path(c))}.join(", ").html_safe
+        end
+        column :thumbnail do |post|
+            image_tag post.thumbnail_url, size: "100x100" if post.thumbnail.present?
+        end
+        column :created_at
+        column :updated_at
+        actions
+    end
+
+    show do
+        attributes_table do
+            row :title
+            row :content do |post|
+                raw post.content
+            end
+            row :thumbnail do |post|
+                image_tag post.thumbnail_url if post.thumbnail.present?
+            end
+            row :created_at
+            row :updated_at
+        end
+        active_admin_comments
+    end
+
 end
