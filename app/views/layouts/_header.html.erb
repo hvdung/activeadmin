@@ -16,10 +16,13 @@
             <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <%= form_tag posts_path, method: :get , class: "form-inline mt-2 mt-md-0" do %>
+            <%= text_field_tag :search_content, params[:search_content], class: "form-control input-field", id: "search-field" %>
+            <%= button_tag(type: "submit", class: "btn btn-outline-success my-2 my-sm-0") do %>
+                Search
+            <% end %>
+        <% end %>
         </div>
+        <button class="btn">Click</button>
     </nav>
 </header>

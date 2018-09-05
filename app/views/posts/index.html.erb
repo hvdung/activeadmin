@@ -1,0 +1,23 @@
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+        <% @posts.each do |p| %>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+            <%= image_tag p.thumbnail.present? ? p.thumbnail_url : "http://via.placeholder.com/350x255", class: "card-img-top" %>
+            <div class="card-body">
+                <h4 class="card-text"><%= p.title %></h4>
+                <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+                </div>
+            </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+<div id="result"></div>
