@@ -18,7 +18,7 @@
         </ul>
         <%= form_tag posts_path, method: :get , class: "form-inline mt-2 mt-md-0" do %>
             <%= text_field_tag :search_content, params[:search_content], class: "form-control input-field", id: "search-field" %>
-            <%= button_tag(type: "submit", class: "btn btn-outline-success my-2 my-sm-0") do %>
+            <%= button_tag(type: "submit", class: "btn btn-outline-success my-2 my-sm-0", name: nil) do %>
                 Search
             <% end %>
         <% end %>

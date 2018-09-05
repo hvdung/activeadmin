@@ -21,32 +21,19 @@
 //= require_tree .
 
 $(document).on("turbolinks:load", function() {
-    var availableTags = [
-        "ActionScript",
-        "AppleScript",
-        "Asp",
-        "BASIC",
-        "C",
-        "C++",
-        "Clojure",
-        "COBOL",
-        "ColdFusion",
-        "Erlang",
-        "Fortran",
-        "Groovy",
-        "Haskell",
-        "Java",
-        "JavaScript",
-        "Lisp",
-        "Perl",
-        "PHP",
-        "Python",
-        "Ruby",
-        "Scala",
-        "Scheme"
-      ];
       $( "#search-field" ).autocomplete({
-        source: "/posts"
+        source: function (request, response) {
+          $.getJSON("/posts.json?search_content=" + request.term, function (data) {
+              response($.map(data.posts, function (value, key) {
+                  return {
+                      label: value.title,
+                      value: key
+                  };
+              }));
+          });
+      },
+      minLength: 2,
+      delay: 100
       });
       $(".btn").click(function(){
         
