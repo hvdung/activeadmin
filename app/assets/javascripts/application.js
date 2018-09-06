@@ -27,15 +27,25 @@ $(document).on("turbolinks:load", function() {
               response($.map(data.posts, function (value, key) {
                   return {
                       label: value.title,
-                      value: key
+                      value: key,
+                      id: value.id,
+                      image: value.image
                   };
               }));
           });
       },
       minLength: 2,
-      delay: 100
-      });
-      $(".btn").click(function(){
-        
-    });
+      delay: 100,
+      }).data("ui-autocomplete")._renderItem = function(ul, item){
+        debugger
+        var markup = [
+            "<span>" + item.label + "</span>",
+            "<span>" + item.image + "</span>",
+        ]
+        return $( "<li>" )
+            .data( "item.autocomplete", item )
+            .append( markup.join('') )
+            .appendTo( ul );
+      };
+      
 });
