@@ -18,7 +18,6 @@
 //= require activestorage
 //= require turbolinks
 //= require ckeditor/init
-//= require_tree .
 
 $(document).on("turbolinks:load", function() {
       $( "#search-field" ).autocomplete({
@@ -37,7 +36,6 @@ $(document).on("turbolinks:load", function() {
       minLength: 2,
       delay: 100,
       }).data("ui-autocomplete")._renderItem = function(ul, item){
-        debugger
         var markup = [
             "<span>" + item.label + "</span>",
             "<span>" + item.image + "</span>",
