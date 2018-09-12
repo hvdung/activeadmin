@@ -282,7 +282,7 @@ ActiveAdmin.setup do |config|
   # By default, the footer shows the current Active Admin version. You can
   # override the content of the footer here.
   #
-  # config.footer = 'my custom footer text'
+  # config.footer = 'Awesome'
 
   # == Sorting
   #
@@ -295,4 +295,11 @@ ActiveAdmin.setup do |config|
   meta_tags_options = { viewport: 'width=device-width, initial-scale=1' }
   config.meta_tags = meta_tags_options
   config.meta_tags_for_logged_out_pages = meta_tags_options
+
+  ActiveAdmin::ResourceController.class_eval do
+    def find_resource
+      finder = resource_class.is_a?(FriendlyId) ? :slug : :id
+      scoped_collection.find_by(finder => params[:id])
+    end
+  end
 end

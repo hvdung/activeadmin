@@ -15,6 +15,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'ckeditor'
 gem 'jquery-ui-rails'
+gem 'friendly_id', '~> 5.2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

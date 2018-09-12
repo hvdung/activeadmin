@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
     mount_uploader :thumbnail, ImageUploader
+    extend FriendlyId
+    friendly_id :title, use: :slugged
 
     has_many :post_categories, dependent: :destroy
     has_many :categories, through: :post_categories
