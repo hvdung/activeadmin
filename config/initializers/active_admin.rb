@@ -302,4 +302,10 @@ ActiveAdmin.setup do |config|
       scoped_collection.find_by(finder => params[:id])
     end
   end
+
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add label: 'Blog parent', priority: 0
+    end
+  end
 end

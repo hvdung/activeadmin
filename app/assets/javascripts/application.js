@@ -36,9 +36,15 @@ $(document).on("turbolinks:load", function() {
       minLength: 2,
       delay: 100,
       }).data("ui-autocomplete")._renderItem = function(ul, item){
+        if(!item.image){
+            var thumb = "placeholder.it";
+        }
+        else{
+            var thumb = item.image;
+        }
         var markup = [
+            "<span>" + thumb + "</span>",
             "<span>" + item.label + "</span>",
-            "<span>" + item.image + "</span>",
         ]
         return $( "<li>" )
             .data( "item.autocomplete", item )

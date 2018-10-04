@@ -11,6 +11,6 @@ ActiveAdmin.register Category do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+    menu parent: "Blog parent"
     permit_params :title
 end

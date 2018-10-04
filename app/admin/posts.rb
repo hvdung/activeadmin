@@ -11,6 +11,7 @@ ActiveAdmin.register Post do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+menu label: "Articles", priority: 2, parent: "Blog parent"
 
     permit_params :title, :content, :thumbnail, :category_ids => []
 

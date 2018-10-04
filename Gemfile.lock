@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/elastic/elasticsearch-rails.git
+  revision: bfdd2243f0de298547b2dc199e9a671cf72ccde6
+  branch: 5.x
+  specs:
+    elasticsearch-model (5.1.0)
+      activesupport (> 3)
+      elasticsearch (~> 5)
+      hashie
+    elasticsearch-rails (5.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -100,8 +111,18 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    elasticsearch (5.0.5)
+      elasticsearch-api (= 5.0.5)
+      elasticsearch-transport (= 5.0.5)
+    elasticsearch-api (5.0.5)
+      multi_json
+    elasticsearch-transport (5.0.5)
+      faraday
+      multi_json
     erubi (1.7.1)
     execjs (2.7.0)
+    faraday (0.15.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     ffi (1.9.25-x64-mingw32)
     font-awesome-rails (4.7.0.4)
@@ -116,6 +137,7 @@ GEM
     has_scope (0.7.2)
       actionpack (>= 4.1)
       activesupport (>= 4.1)
+    hashie (3.6.0)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     inherited_resources (1.9.0)
@@ -163,6 +185,7 @@ GEM
     msgpack (1.2.4)
     msgpack (1.2.4-x64-mingw32)
     multi_json (1.13.1)
+    multipart-post (2.0.0)
     mysql2 (0.5.2)
     mysql2 (0.5.2-x64-mingw32)
     nio4r (2.3.1)
@@ -271,6 +294,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   coffee-script-source (= 1.8.0)
   devise
+  elasticsearch-model!
+  elasticsearch-rails!
   friendly_id (~> 5.2.0)
   jbuilder (~> 2.5)
   jquery-ui-rails
